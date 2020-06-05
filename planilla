@@ -1,0 +1,90 @@
+package Planilla.Trabajadores;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author ChuriChumiNavia
+ */
+public class planilla_trabajadores {
+    static Scanner in= new Scanner(System.in);
+    static String [][] planilla = null;
+    
+    
+    public static void main(String[]args){
+        
+        planilla=ingresarTrabajadores(planilla);
+        modificarDatos(planilla);
+        ordenar();
+        buscar();
+        total();
+    }
+    public static String[][] ingresarTrabajadores(String planilla1[][]) {
+        System.out.println("Ingrese cantidad de dias a trabajar: ");
+        int dias;
+        dias=in.nextInt();
+        //ESTABLECE CANTIDAD DE TRABAJADORES
+           int ntrab;
+        System.out.println("Ingrese cuantos trabajadores va a registrar: ");
+        ntrab=in.nextInt()+1;
+        //LLENA PLANILLA CON DATOS
+        
+        planilla1[0][0]="NOMBRE";
+        planilla1[0][1]="OCUPACION";
+        planilla1[0][2]="SUELDO";
+        planilla1[0][3]="SUELDO POR DIAS";
+        
+        for (int i = 1; i < ntrab; i++) {
+           
+             for (int j = 0; j < 3; j++) {
+                System.out.println("Ingrese: "+planilla1[0][j]);
+                planilla1[i][j]=in.next();
+                
+                              
+                          
+                
+            }
+            
+        }
+        //Muestra Planilla
+       for (int fila=0; fila <planilla1.length; fila++) {
+            for (int col=0; col < planilla1[fila].length; col++) {
+    System.out.print (planilla1[fila][col] + "\t");
+  }
+    System.out.println();
+    
+  }
+        return planilla1;
+       
+    }    
+    
+    public static String[][] modificarDatos(String planilla1[][]) {
+        
+        System.out.println("¿Que valor desea modificar?");
+            System.out.println();
+            System.out.println("ingrese su posicion en las filas");
+            int x;
+            x=Integer.parseInt(in.next());
+            System.out.println("ingrese su posicion en las columnas");
+            int y;
+            y=Integer.parseInt(in.next());
+            System.out.println("ingrese su nuevo valor");
+            int nuevovalor;
+            nuevovalor=Integer.parseInt(in.next());
+            for (int k = 0; k < planilla1.length; k++) {
+            for (int l = 0; l < planilla1.length; l++) { 
+              planilla1[x][y] = nuevovalor;
+            } 
+              }
+            return planilla1;
+    }
+
+    public static void ordenar() {
+        
+    }
+    public static void buscar(){
+        
+    }
+    public static void total() {
+        
+    }
